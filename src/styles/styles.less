@@ -8,11 +8,6 @@ input::-webkit-inner-spin-button {
   margin: 0;
 }
 
-/* Firefox */
-input[type="number"] {
-  -moz-appearance: textfield;
-}
-
 * {
   margin: 0;
   padding: 0;
@@ -21,6 +16,13 @@ input[type="number"] {
 }
 
 body {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+
+  height: 100vh;
+
   color: white;
   background-color: @bg-primary;
 }
@@ -58,6 +60,7 @@ input {
   margin: 1rem auto;
 
   font-size: 3.5rem;
+  text-align: center;
 
   max-width: 120px;
 
@@ -70,5 +73,18 @@ input {
   &:focus {
     border-radius: 6px;
     outline: 2px solid #fff;
+  }
+}
+
+.result {
+  margin-top: 7.5rem;
+  padding: 1rem;
+
+  border: 8px dotted #fff;
+
+  .sort-span {
+    display: block;
+    font-size: 5rem;
+    font-weight: 700;
   }
 }

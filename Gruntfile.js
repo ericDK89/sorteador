@@ -38,6 +38,10 @@ function grunt(grunt) {
               match: "CSS_ADDRESS",
               replacement: "./styles/styles.css",
             },
+            {
+              match: "JS_ADDRESS",
+              replacement: "../src/scripts/scripts.js",
+            },
           ],
         },
         files: [
@@ -55,6 +59,10 @@ function grunt(grunt) {
             {
               match: "CSS_ADDRESS",
               replacement: "./styles/styles.min.css",
+            },
+            {
+              match: "JS_ADDRESS",
+              replacement: "./scripts/scripts.min.js",
             },
           ],
         },
@@ -80,6 +88,13 @@ function grunt(grunt) {
       },
     },
     clean: ["temp"],
+    uglify: {
+      target: {
+        files: {
+          "dist/scripts/scripts.min.js": "src/scripts/scripts.js",
+        },
+      },
+    },
   });
 
   grunt.loadNpmTasks("grunt-contrib-less");
@@ -88,6 +103,7 @@ function grunt(grunt) {
   grunt.loadNpmTasks("grunt-replace");
   grunt.loadNpmTasks("grunt-contrib-htmlmin");
   grunt.loadNpmTasks("grunt-contrib-clean");
+  grunt.loadNpmTasks("grunt-contrib-uglify");
 
   grunt.registerTask("default", ["watch"]);
   grunt.registerTask("build", [
@@ -95,6 +111,7 @@ function grunt(grunt) {
     "htmlmin:dist",
     "replace:dist",
     "clean",
+    "uglify",
   ]);
 }
 
